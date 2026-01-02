@@ -1,16 +1,12 @@
 # laserLLM
 
-================================================================================
-                  xLSTM Vibration Displacement Predictor
-================================================================================
-
 A production-ready implementation of a 2-layer stacked Extended Long Short-Term 
 Memory (xLSTM) neural network for predicting vibration displacement from time 
 series data.
 
-================================================================================
+
 OVERVIEW
-================================================================================
+
 
 This project implements a state-of-the-art xLSTM architecture that combines:
   - mLSTM blocks with matrix memory for spatial pattern capture
