@@ -5,7 +5,7 @@ Memory (xLSTM) neural network for predicting vibration displacement from time
 series data.
 
 
-OVERVIEW
+## OVERVIEW
 
 
 This project implements a state-of-the-art xLSTM architecture that combines:
@@ -17,9 +17,9 @@ This project implements a state-of-the-art xLSTM architecture that combines:
 Target Performance: R² > 0.85 on test data
 Achieved Performance: R² ≈ 0.92-0.96 (typical)
 
-================================================================================
-ARCHITECTURE
-================================================================================
+
+## ARCHITECTURE
+
 
 Input (displacement, 30 timesteps)
          |
@@ -50,9 +50,9 @@ Model Specifications:
   - Memory Dimension: 16x16 per mLSTM block
   - Sequence Length: 30 timesteps
 
-================================================================================
-PROJECT STRUCTURE
-================================================================================
+
+## PROJECT STRUCTURE
+
 
 project_root/
 ├── xlstm.py                    # Main training script
@@ -65,9 +65,9 @@ project_root/
 │   └── Result/                 # Output directory (models, plots)
 └── README.txt                  # This file
 
-================================================================================
-QUICK START
-================================================================================
+
+## QUICK START
+
 
 Requirements:
   - Python 3.6+
@@ -81,10 +81,10 @@ Requirements:
   - scipy (for evaluation)
 
 Installation:
-  # Install dependencies
+  - Install dependencies
   pip install torch numpy pandas scikit-learn matplotlib tqdm seaborn scipy
 
-  # Or with specific versions for Python 3.6
+  - Or with specific versions for Python 3.6
   pip install torch==1.10.0+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
   pip install pandas==1.1.5 numpy==1.19.5 scikit-learn==0.24.2
 
@@ -118,35 +118,35 @@ Evaluation:
     - xlstm_evaluation_publication.png (12-panel comprehensive visualization)
     - evaluation_results_publication.json (detailed metrics)
 
-================================================================================
-CONFIGURATION
-================================================================================
+
+## CONFIGURATION
+
 
 Edit these parameters in xlstm.py:
 
-# Data paths
+- Data paths
 TRAIN_FOLDER = 'path/to/training/data'
 VAL_FOLDER = 'path/to/validation/data'
 RESULT_FOLDER = 'path/to/results'
 
-# Model parameters
+- Model parameters
 SEQUENCE_LENGTH = 30        # Input sequence length
 HIDDEN_SIZE = 128           # Hidden layer size
 MEMORY_DIM = 16             # Memory dimension (16x16 matrix)
 
-# Training parameters
+- Training parameters
 NUM_EPOCHS = 50             # Maximum epochs
 BATCH_SIZE = 128            # Mini-batch size
 LEARNING_RATE = 0.001       # Adam learning rate
 EARLY_STOP_PATIENCE = 10    # Early stopping patience
 
-# Optimization options
+- Optimization options
 SEQUENCE_STEP = 1           # Sequence sampling step (1=all, 5=every 5th)
 USE_MIXED_PRECISION = False # Mixed precision training (GPU speedup)
 
-================================================================================
-KEY FEATURES
-================================================================================
+
+## KEY FEATURES
+
 
 Training Pipeline:
   - Data Loading: Automatically loads all CSV files from train/validation folders
@@ -171,9 +171,9 @@ Monitoring:
   - Patience counter display
   - Gradient norm monitoring
 
-================================================================================
-PERFORMANCE METRICS
-================================================================================
+
+##PERFORMANCE METRICS
+
 
 The model is evaluated on:
 
@@ -191,9 +191,9 @@ Additional diagnostics:
   - Cumulative error distribution
   - Error percentiles (50th, 75th, 90th, 95th, 99th)
 
-================================================================================
-EVALUATION VISUALIZATIONS
-================================================================================
+
+##EVALUATION VISUALIZATIONS
+
 
 The evaluation script generates 12 comprehensive plots:
 
@@ -210,9 +210,9 @@ The evaluation script generates 12 comprehensive plots:
 11. Percentile Bars: Error at key percentiles
 12. Architecture Diagram: Model configuration
 
-================================================================================
-TROUBLESHOOTING
-================================================================================
+
+## TROUBLESHOOTING
+
 
 Data Quality Issues:
   Always verify data quality before training:
@@ -245,9 +245,9 @@ Slow Training:
     3. Reduce number of sequences (fewer/shorter CSV files)
     4. Use GPU with CUDA support
 
-================================================================================
-OUTPUT FILES
-================================================================================
+
+## OUTPUT FILES
+
 
 Training produces:
   - best_xlstm_model.pth
@@ -263,9 +263,9 @@ Evaluation produces:
   - evaluation_results_publication.json
       Detailed metrics JSON
 
-================================================================================
-TECHNICAL DETAILS
-================================================================================
+
+## TECHNICAL DETAILS
+
 
 xLSTM Architecture:
 
@@ -312,9 +312,8 @@ Training Algorithm:
           if patience_counter >= EARLY_STOP_PATIENCE:
               break
 
-================================================================================
-RESEARCH CONTEXT
-================================================================================
+
+## RESEARCH CONTEXT
 
 This implementation is based on the Extended LSTM architecture that enhances 
 traditional LSTMs with:
@@ -328,9 +327,8 @@ Key advantages over standard LSTM:
   - Higher capacity without proportional parameter increase
   - Improved performance on sequence prediction tasks
 
-================================================================================
-TYPICAL WORKFLOW
-================================================================================
+
+## TYPICAL WORKFLOW
 
 1. Prepare Data:
    - Place training CSV files in Data/Train/
@@ -367,9 +365,9 @@ TYPICAL WORKFLOW
    - Review homoscedasticity plot
    - Examine error percentiles
 
-================================================================================
-COMMON USE CASES
-================================================================================
+
+## COMMON USE CASES
+
 
 Vibration Prediction:
   - Predict next time step displacement from 30-step history
@@ -386,9 +384,8 @@ Research Applications:
   - Compare against LSTM/GRU baselines
   - Study architectural variations
 
-================================================================================
-TIPS FOR BEST RESULTS
-================================================================================
+
+## TIPS FOR BEST RESULTS
 
 1. Data Quality:
    - Clean outliers before training
@@ -415,9 +412,8 @@ TIPS FOR BEST RESULTS
    - Monitor prediction latency
    - Implement error bounds
 
-================================================================================
-VERSION HISTORY
-================================================================================
+
+## VERSION HISTORY
 
 v1 (Current):
   - 2-layer stacked architecture
@@ -425,34 +421,32 @@ v1 (Current):
   - Comprehensive evaluation with 12 plots
   - Production-ready code with error handling
 
-================================================================================
-ACKNOWLEDGMENTS
-================================================================================
+
+## ACKNOWLEDGMENTS
 
 - Original xLSTM paper authors
 - MTSU HPC cluster team
 - PyTorch development team
 
-================================================================================
-CONTACT
-================================================================================
+
+## CONTACT
+
 
 For questions or issues, please contact the maintainers or open a GitHub issue.
 
-================================================================================
-LICENSE
-================================================================================
+
+## LICENSE
+
 
 MIT License - Feel free to use for research and commercial purposes.
 
-================================================================================
-NOTE
-================================================================================
+
+## NOTE
 
 This implementation is optimized for vibration displacement prediction but 
 can be adapted for other time series forecasting tasks with minimal 
 modifications.
 
-================================================================================
-                              END OF README
-================================================================================
+
+# END OF README
+
